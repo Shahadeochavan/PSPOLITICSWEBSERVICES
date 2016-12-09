@@ -18,7 +18,8 @@ public class JSONServiceParty {
 		Partys partys= new Partys();
 		List<Party> partyList = new ArrayList<Party>();
 		Party party = new Party();
-		party.setPersonPhoto("img/nitin.jpg");
+		party.setPartyImage("http://192.168.0.100:8080/PSPolitics/img/bjp.jpg");
+		party.setPersonImage("http://192.168.0.100:8080/PSPolitics/img/nitin.jpg");
 		party.setPersonName("Nitin Shelke");
 		party.setDesgination("Nagar Sevak");
 		party.setPartyName("Bharatiya janta party");

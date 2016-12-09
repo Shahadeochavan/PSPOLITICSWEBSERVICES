@@ -1,15 +1,15 @@
 package com.mkyong.rest;
 
 public class Gallery {
-	 private int images;
+	 private String images;
 	    public Gallery(){
 
 	    }
-	    public int getImages() {
+	    public String getImages() {
 	        return images;
 	    }
 
-	    public void setImages(int images) {
+	    public void setImages(String images) {
 	        this.images = images;
 	    }
 

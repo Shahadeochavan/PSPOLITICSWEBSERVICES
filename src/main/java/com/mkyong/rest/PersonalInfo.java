@@ -1,10 +1,17 @@
 package com.mkyong.rest;
 
 public class PersonalInfo {
+	private String image;
 	private String name;
 	private String education;
 	private String working;
 	private String address;
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public String getName() {
 		return name;
 	}

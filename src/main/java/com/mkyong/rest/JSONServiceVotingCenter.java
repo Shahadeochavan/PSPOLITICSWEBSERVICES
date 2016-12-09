@@ -23,6 +23,33 @@ public class JSONServiceVotingCenter {
 		votingCenter.setEndTime("05:00");
 		votingCenterList.add(votingCenter);
 		votingCenters.setVotingCenters(votingCenterList);
+		
+		votingCenter = new VotingCenter();
+		votingCenter.setAddress("Pune");
+		votingCenter.setPlaceName("Z.P. Scholl");
+		votingCenter.setDate("12/12/2016");
+		votingCenter.setStartTime("07:00");
+		votingCenter.setEndTime("05:00");
+		votingCenterList.add(votingCenter);
+		votingCenters.setVotingCenters(votingCenterList);
+		
+		votingCenter = new VotingCenter();
+		votingCenter.setAddress("Parner");
+		votingCenter.setPlaceName("Z.P. Scholl");
+		votingCenter.setDate("12/12/2016");
+		votingCenter.setStartTime("07:00");
+		votingCenter.setEndTime("05:00");
+		votingCenterList.add(votingCenter);
+		votingCenters.setVotingCenters(votingCenterList);
+		
+		votingCenter = new VotingCenter();
+		votingCenter.setAddress("katraj");
+		votingCenter.setPlaceName("Z.P. Scholl");
+		votingCenter.setDate("12/12/2016");
+		votingCenter.setStartTime("07:00");
+		votingCenter.setEndTime("05:00");
+		votingCenterList.add(votingCenter);
+		votingCenters.setVotingCenters(votingCenterList);
 		return votingCenters; 
 	}
 

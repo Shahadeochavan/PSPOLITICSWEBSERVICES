@@ -1,21 +1,27 @@
 package com.mkyong.rest;
 
-import java.awt.Image;
-
 public class Party {
-	private String personPhoto;
-	public String getPersonPhoto() {
-		return personPhoto;
-	}
-
-	public void setPersonPhoto(String personPhoto) {
-		this.personPhoto = personPhoto;
-	}
-
+	private String partyImage;
+	private String personImage;
 	private String personName;
     private String partyName;
     private String desgination;
-    public String getDesgination() {
+	  public String getPartyImage() {
+		return partyImage;
+	}
+
+	public void setPartyImage(String partyImage) {
+		this.partyImage = partyImage;
+	}
+    public String getPersonImage() {
+		return personImage;
+	}
+
+	public void setPersonImage(String personImage) {
+		this.personImage = personImage;
+	}
+
+	public String getDesgination() {
         return desgination;
     }
 
@@ -37,11 +43,6 @@ public class Party {
     public void setPersonName(String personName) {
         this.personName = personName;
     }
-
-	public void setPersonPhoto(Image img) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 }

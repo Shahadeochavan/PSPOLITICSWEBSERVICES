@@ -17,6 +17,7 @@ public class JSONServiceGallery {
 		Gallerys gallerys= new Gallerys();
 		List<Gallery> galleryList = new ArrayList<Gallery>();
 		Gallery gallery = new Gallery();
+		gallery.setImages("http://192.168.0.100:8080/PSPolitics/img/nitin13.jpg");
 		galleryList.add(gallery);
 		gallerys.setGalleries(galleryList);
 

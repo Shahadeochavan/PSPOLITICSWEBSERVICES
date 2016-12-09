@@ -16,6 +16,21 @@ public class JSONServiceSocialWork {
 		SocialWorks socialWorks= new SocialWorks();
 		List<SoicalWork> socialWorkList = new ArrayList<SoicalWork>();
 		SoicalWork socilaWork = new SoicalWork();
+		socilaWork.setSocialPhotos("http://192.168.0.100:8080/PSPolitics/img/social.jpg");
+		socilaWork.setSocialDate("12/12/2016");
+		socilaWork.setSocialInformation("Tree Plantation");
+		socialWorkList.add(socilaWork);
+		socialWorks.setSoicalWorks(socialWorkList);
+		
+		socilaWork = new SoicalWork();
+		socilaWork.setSocialPhotos("http://192.168.0.100:8080/PSPolitics/img/social.jpg");
+		socilaWork.setSocialDate("12/12/2016");
+		socilaWork.setSocialInformation("Tree Plantation");
+		socialWorkList.add(socilaWork);
+		socialWorks.setSoicalWorks(socialWorkList);
+		
+		socilaWork = new SoicalWork();
+		socilaWork.setSocialPhotos("http://192.168.0.100:8080/PSPolitics/img/social.jpg");
 		socilaWork.setSocialDate("12/12/2016");
 		socilaWork.setSocialInformation("Tree Plantation");
 		socialWorkList.add(socilaWork);

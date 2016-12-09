@@ -1,7 +1,7 @@
 package com.mkyong.rest;
 
 public class SoicalWork {
-    private int socialPhotos;
+    private String socialPhotos;
     private String socialInformation;
     private String socialDate;
 
@@ -21,11 +21,11 @@ public class SoicalWork {
         this.socialInformation = socialInformation;
     }
 
-    public int getSocialPhotos() {
+    public String getSocialPhotos() {
         return socialPhotos;
     }
 
-    public void setSocialPhotos(int socialPhotos) {
+    public void setSocialPhotos(String socialPhotos) {
         this.socialPhotos = socialPhotos;
     }
 
