@@ -6,24 +6,33 @@ import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+
+import com.google.gson.Gson;
+import com.nextech.pspolitics.model.VotingCenter;
+import com.nextech.pspolitics.model.VotingCenters;
+import com.nextech.pspolitics.model.VotingSchedule;
+import com.nextech.pspolitics.model.VotingSchedules;
 @Path("/json/votingschedule")
 public class JSONServiceVotingSchedule {
 
 	@GET
 	@Path("/get")
-	@Produces("application/json")
-	public VotingSchedules getVotingScheduleInJSON() {
-		System.out.println("votingschedulejson...");
-		VotingSchedules votingSchedules= new VotingSchedules();
-		List<VotingSchedule> VotingSchedulesList = new ArrayList<VotingSchedule>();
-		VotingSchedule votingSchedule = new VotingSchedule();
-		votingSchedule.setVotingDay("Sunday");
-		votingSchedule.setVotingDate("12/12/2016");
-		votingSchedule.setVotingStartTime("07:00");
-		votingSchedule.setVotingEndTime("05:00");
-		VotingSchedulesList.add(votingSchedule);
-		votingSchedules.setVotingSchedule(VotingSchedulesList);
-		return votingSchedules; 
+	@Produces("application/json; charset=utf-8")
+	public String getVotingSchdeule() {
+		System.out.println("getVotingSchdule...");
+		String votingSchedule = null;
+		VotingSchedules votingSchedules=new VotingSchedules();
+		try {
+			ArrayList<VotingSchedule> votingScheduleList = new ArrayList<VotingSchedule>();
+			votingScheduleList = new VotingScheduleManager().getVotingSchedule();
+			votingSchedules.setVotingSchedule(votingScheduleList);
+			Gson gson = new Gson();
+			votingSchedule = gson.toJson(votingSchedules);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return votingSchedule;
 	}
 
 }

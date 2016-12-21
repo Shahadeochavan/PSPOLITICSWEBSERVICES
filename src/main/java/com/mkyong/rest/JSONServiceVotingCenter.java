@@ -6,51 +6,32 @@ import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+
+import com.google.gson.Gson;
+import com.nextech.pspolitics.model.Meeting;
+import com.nextech.pspolitics.model.Meetings;
+import com.nextech.pspolitics.model.VotingCenter;
+import com.nextech.pspolitics.model.VotingCenters;
 @Path("/json/votingcenter")
 public class JSONServiceVotingCenter {
 	@GET
 	@Path("/get")
-	@Produces("application/json")
-	public VotingCenters getVotingCentersInJSON() {
-		System.out.println("VotingCentersjson...");
-		VotingCenters votingCenters= new VotingCenters();
-		List<VotingCenter> votingCenterList = new ArrayList<VotingCenter>();
-		VotingCenter votingCenter = new VotingCenter();
-		votingCenter.setAddress("Wadegon");
-		votingCenter.setPlaceName("High Scholl");
-		votingCenter.setDate("12/12/2016");
-		votingCenter.setStartTime("07:00");
-		votingCenter.setEndTime("05:00");
-		votingCenterList.add(votingCenter);
-		votingCenters.setVotingCenters(votingCenterList);
-		
-		votingCenter = new VotingCenter();
-		votingCenter.setAddress("Pune");
-		votingCenter.setPlaceName("Z.P. Scholl");
-		votingCenter.setDate("12/12/2016");
-		votingCenter.setStartTime("07:00");
-		votingCenter.setEndTime("05:00");
-		votingCenterList.add(votingCenter);
-		votingCenters.setVotingCenters(votingCenterList);
-		
-		votingCenter = new VotingCenter();
-		votingCenter.setAddress("Parner");
-		votingCenter.setPlaceName("Z.P. Scholl");
-		votingCenter.setDate("12/12/2016");
-		votingCenter.setStartTime("07:00");
-		votingCenter.setEndTime("05:00");
-		votingCenterList.add(votingCenter);
-		votingCenters.setVotingCenters(votingCenterList);
-		
-		votingCenter = new VotingCenter();
-		votingCenter.setAddress("katraj");
-		votingCenter.setPlaceName("Z.P. Scholl");
-		votingCenter.setDate("12/12/2016");
-		votingCenter.setStartTime("07:00");
-		votingCenter.setEndTime("05:00");
-		votingCenterList.add(votingCenter);
-		votingCenters.setVotingCenters(votingCenterList);
-		return votingCenters; 
+	@Produces("application/json; charset=utf-8")
+	public String getVotingCenter() {
+		System.out.println("getVotingCenter...");
+		String votingcenter = null;
+		VotingCenters votingCenters=new VotingCenters();
+		try {
+			ArrayList<VotingCenter> votingCentersList = new ArrayList<VotingCenter>();
+			votingCentersList = new VotingCenterManager().getVotingCenter();
+			votingCenters.setVotingCenters(votingCentersList);
+			Gson gson = new Gson();
+			votingcenter = gson.toJson(votingCenters);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return votingcenter;
 	}
 
 }

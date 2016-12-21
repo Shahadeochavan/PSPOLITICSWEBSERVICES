@@ -1,4 +1,4 @@
-package com.mkyong.rest;
+package com.nextech.pspolitics.model;
 
 public class VotingList {
 	 private String firstName;

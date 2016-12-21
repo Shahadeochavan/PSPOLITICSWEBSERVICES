@@ -10,36 +10,32 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import com.google.gson.Gson;
+import com.nextech.pspolitics.model.Rally;
+import com.nextech.pspolitics.model.Rallys;
+import com.nextech.pspolitics.model.VotingCenter;
+import com.nextech.pspolitics.model.VotingCenters;
+
 @Path("/json/rally")
 public class JSONServiceRally {
 
 	@GET
 	@Path("/get")
-	@Produces("application/json")
-	public Rallys getRallyInJSON() {
-		System.out.println("getRallyJson...");
-		Rallys rallys= new Rallys();
-		List<Rally> rallyList = new ArrayList<Rally>();
-		Rally rally = new Rally();
-		rally.setStartPoint("pune station");
-		rally.setEndPoint("shivaji Nagar");
-		rally.setDate("12/12/2016");
-		rally.setStartTime("10:00");
-		rally.setEndTime("12:00");
-		rally.setRallyDay("Sunday");
-		rallyList.add(rally);
-		rallys.setRallys(rallyList);
-		return rallys; 
+	@Produces("application/json; charset=utf-8")
+	public String getRally() {
+		System.out.println("getRally...");
+		String rally = null;
+		Rallys rallys=new Rallys();
+		try {
+			ArrayList<Rally> rallyList = new ArrayList<Rally>();
+			rallyList = new RallyManager().getRally();
+			rallys.setRallys(rallyList);
+			Gson gson = new Gson();
+			rally = gson.toJson(rallys);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rally;
 	}
-
-	@POST
-	@Path("/post")
-	@Consumes("application/json")
-	public Response createRallyInJSON(Rally rally) {
-
-		String result = "Rally created : " + rally;
-		return Response.status(201).entity(result).build();
-		
-	}
-	}
-
+}

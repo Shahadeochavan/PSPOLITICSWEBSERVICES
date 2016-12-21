@@ -13,7 +13,6 @@
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
 		</repository>
 	</repositories>
-
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -21,17 +20,21 @@
 			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.21</version>
+		</dependency>
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>2.2.1.GA</version>
 		</dependency>
 		<dependency>
-    <groupId>com.sun.jersey</groupId>
-    <artifactId>jersey-json</artifactId>
-    <version>1.17.1</version>
-</dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>1.17.1</version>
+		</dependency>
 
 		<!-- <dependency> <groupId>org.jboss.resteasy</groupId> <artifactId>resteasy-jaxb-provider</artifactId> 
 			<version>2.2.0.GA</version> </dependency> -->
@@ -42,6 +45,11 @@
 			<version>2.2.1.GA</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

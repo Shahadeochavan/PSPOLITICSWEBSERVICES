@@ -7,6 +7,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import com.nextech.pspolitics.model.Gallery;
+
 @Path("/json/gallery")
 public class JSONServiceGallery {
 	@GET
@@ -17,7 +19,7 @@ public class JSONServiceGallery {
 		Gallerys gallerys= new Gallerys();
 		List<Gallery> galleryList = new ArrayList<Gallery>();
 		Gallery gallery = new Gallery();
-		gallery.setImages("http://192.168.0.100:8080/PSPolitics/img/nitin13.jpg");
+		gallery.setImages("http://192.168.2.102:8080/PSPolitics/img/nitin13.jpg");
 		galleryList.add(gallery);
 		gallerys.setGalleries(galleryList);
 

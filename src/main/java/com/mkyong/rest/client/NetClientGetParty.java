@@ -1,7 +1,7 @@
 package com.mkyong.rest.client;
 
 public class NetClientGetParty {
-	private static  String url="http://192.168.0.100:8080/PSPolitics/json/party/get";
+	private static  String url="http://192.168.2.102:8080/PSPolitics/json/party/get";
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

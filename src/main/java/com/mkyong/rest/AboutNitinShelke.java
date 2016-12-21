@@ -1,17 +1,32 @@
 package com.mkyong.rest;
 
-import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import com.nextech.pspolitics.model.AboutNitin;
 
 public class AboutNitinShelke {
-	List<AboutNitin> aboutNitins;
+	public ArrayList<AboutNitin> getAboutNitin(Connection con)
+			throws SQLException {
+		ArrayList<AboutNitin> aboutNitinList = new ArrayList<AboutNitin>(); 
+		PreparedStatement stmt = con
+				.prepareStatement(" SELECT * FROM aboutnitin");      
+		ResultSet rs = stmt.executeQuery();
+	
+		try {
+			while (rs.next()) {
+				AboutNitin aboutNitin = new AboutNitin();
+				aboutNitin.setAboutNitin(rs.getString("aboutNitin"));
+				aboutNitinList.add(aboutNitin);
+			
+		
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return aboutNitinList;
 
-	public List<AboutNitin> getAboutNitins() {
-		return aboutNitins;
 	}
-
-	public void setAboutNitins(List<AboutNitin> aboutNitins) {
-		this.aboutNitins = aboutNitins;
-	}
-
-
 }

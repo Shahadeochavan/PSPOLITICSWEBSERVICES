@@ -2,6 +2,8 @@ package com.mkyong.rest;
 
 import java.util.List;
 
+import com.nextech.pspolitics.model.VotingList;
+
 public class VotingLists {
 	List<VotingList> votingLists;
 
