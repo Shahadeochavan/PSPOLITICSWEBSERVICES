@@ -19,6 +19,7 @@ public class AboutNitinShelke {
 			while (rs.next()) {
 				AboutNitin aboutNitin = new AboutNitin();
 				aboutNitin.setAboutNitin(rs.getString("aboutNitin"));
+				aboutNitin.setNitinImage("http://192.168.2.102:8080/PSPolitics/img/nitin.jpg");
 				aboutNitinList.add(aboutNitin);
 			
 		

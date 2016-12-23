@@ -12,14 +12,14 @@ public class SocialWorkData {
 			throws SQLException {
 		ArrayList<SoicalWork> socialworkList = new ArrayList<SoicalWork>(); 
 		PreparedStatement stmt = con
-				.prepareStatement(" SELECT * FROM meeting");      
+				.prepareStatement(" SELECT * FROM socialwork");      
 		ResultSet rs = stmt.executeQuery();
 		try {
 			while (rs.next()) {
 				SoicalWork socialWork = new SoicalWork();
-				socialWork.setSocialInformation(rs.getString("infoSocial_Work"));
+				socialWork.setSocialInformation(rs.getString("socialInformation"));
 				socialWork.setSocialDate(rs.getString("date"));
-				socialWork.setSocialPhotos(rs.getString("socialworkImage"));
+				socialWork.setSocialPhotos("http://192.168.2.102:8080/PSPolitics/img/social.jpg");
 				socialworkList.add(socialWork);
 		
 			}

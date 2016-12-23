@@ -7,25 +7,31 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import com.google.gson.Gson;
+import com.nextech.pspolitics.model.Meeting;
+import com.nextech.pspolitics.model.Meetings;
 import com.nextech.pspolitics.model.PersonalInfo;
+import com.nextech.pspolitics.model.PersonalInformation;
 @Path("/json/personalinfo")
 public class JSONServicePersonalInfo {
 	@GET
 	@Path("/get")
-	@Produces("application/json")
-	public PersonalInformation getPersonalInJSON() {
-		System.out.println("getPersonalInJSON...");
-		PersonalInformation personalInformation= new PersonalInformation();
-		List<PersonalInfo> personalInfoList = new ArrayList<PersonalInfo>();
-		PersonalInfo personalInfo = new PersonalInfo();
-		personalInfo.setImage("http://192.168.2.102:8080/PSPolitics/img/nitin10.jpg");
-		personalInfo.setName("Nitin Shelke");
-		personalInfo.setEducation("B.A.");
-		personalInfo.setWorking("Farmer");
-		personalInfo.setAddress("Wadegon");
-		personalInfoList.add(personalInfo);
-		personalInformation.setPersonalInfos(personalInfoList);
-
-		return personalInformation; 
+	@Produces("application/json; charset=utf-8")
+	public String getPesonalInfo() {
+		System.out.println("getPersonalInfo...");
+		String personaInfo = null;
+		PersonalInformation personalInformation=new PersonalInformation();
+		try {
+			ArrayList<PersonalInfo> personalInfoList = new ArrayList<PersonalInfo>();
+			personalInfoList = new PersonalInfoManager().getpersonalInfo();
+			personalInformation.setPersonalInfos(personalInfoList);
+			Gson gson = new Gson();
+			personaInfo = gson.toJson(personalInformation);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return personaInfo;
 	}
+
 }

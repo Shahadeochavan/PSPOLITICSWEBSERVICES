@@ -7,57 +7,33 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import com.google.gson.Gson;
+import com.nextech.pspolitics.model.Meeting;
+import com.nextech.pspolitics.model.Meetings;
 import com.nextech.pspolitics.model.News;
+import com.nextech.pspolitics.model.Newss;
 @Path("/json/news")
 public class JSONServiceNews {
 
 	@GET
 	@Path("/get")
-	@Produces("application/json")
-	public Newss getNewsInJSON() {
-		System.out.println("getNewsInJSON...");
-		Newss newss= new Newss();
-		List<News> newslist = new ArrayList<News>();
-		News news = new News();
-		news.setPhotoId("http://192.168.2.102:8080/PSPolitics/img/nitin.jpg");
-		news.setPhotsNews("http://192.168.2.102:8080/PSPolitics/img/nature.jpg");
-		news.setName("Shahadeo Chavan");
-		news.setDate("12/12/2016");
-		news.setTime("12:00");
-		news.setInformationofphots("Nitin Shelke Phots At Wadegon");
-		newslist.add(news);
-		newss.setNewss(newslist);
-		
-		news = new News();
-		news.setPhotoId("http://192.168.2.102:8080/PSPolitics/img/nitin2.jpg");
-		news.setPhotsNews("http://192.168.2.102:8080/PSPolitics/img/shahadeo.jpg");
-		news.setName("Sunil Chavan");
-		news.setDate("12/12/2016");
-		news.setTime("12:00");
-		news.setInformationofphots("Nitin Shelke Phots At Wadegon");
-		newslist.add(news);
-		newss.setNewss(newslist);
-		
-		news = new News();
-		news.setPhotoId("http://192.168.2.102:8080/PSPolitics/img/nitin.jpg");
-		news.setPhotsNews("http://192.168.2.102:8080/PSPolitics/img/nature1.jpg");
-		news.setName("Sunil Chavan");
-		news.setDate("12/12/2015");
-		news.setTime("12:00");
-		news.setInformationofphots("Sunil Chavan Phots At Wondercity");
-		newslist.add(news);
-		newss.setNewss(newslist);
-		
-		news = new News();
-		news.setPhotoId("http://192.168.2.102:8080/PSPolitics/img/nitin.jpg");
-		news.setPhotsNews("http://192.168.2.102:8080/PSPolitics/img/nature1.jpg");
-		news.setName("Anil Chavan");
-		news.setDate("12/12/2016");
-		news.setTime("12:00");
-		news.setInformationofphots("Nitin Shelke Photos At Wadegon");
-		newslist.add(news);
-		newss.setNewss(newslist);
-		return newss; 
+	@Produces("application/json; charset=utf-8")
+	public String getNews() {
+		System.out.println("getNews...");
+		String news = null;
+		Newss newss=new Newss();
+		try {
+			ArrayList<News> newsList = new ArrayList<News>();
+			newsList = new NewsManager().getNews();
+			newss.setNewss(newsList);
+			Gson gson = new Gson();
+			news = gson.toJson(newss);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return news;
 	}
+
 
 }
