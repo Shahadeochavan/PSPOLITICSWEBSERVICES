@@ -16,7 +16,6 @@ public class Database {
             String password="root";
 			System.out.println("I am in database");
 			Class.forName(driver).newInstance();
-			System.out.println("I am in database");
 			connection = DriverManager.getConnection(connectionURL, username, password);
 			return connection;
 		} catch (SQLException e)

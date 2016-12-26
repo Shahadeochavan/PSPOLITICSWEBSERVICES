@@ -21,7 +21,7 @@ public class PersonalInfoData {
 				personalInfo.setAddress(rs.getString("address"));
 				personalInfo.setEducation(rs.getString("education"));
 				personalInfo.setWorking(rs.getString("working"));
-				personalInfo.setImage("http://192.168.2.102:8080/PSPolitics/img/nitin13.jpg");
+				personalInfo.setImage(rs.getString("imageNitin"));
 				personalInfoList.add(personalInfo);
 
 			}

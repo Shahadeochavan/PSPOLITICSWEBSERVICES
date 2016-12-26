@@ -15,12 +15,12 @@ public class NewsData {
 		try {
 			while (rs.next()) {
 				News news = new News();
-				news.setPhotoId("http://192.168.2.102:8080/PSPolitics/img/nitin10.jpg");
+				news.setPhotoId(rs.getString("photoId"));
 				news.setName(rs.getString("name"));
 				news.setDate(rs.getString("date"));
 				news.setTime(rs.getString("time"));
 				news.setInformationofphots(rs.getString("informationofphots"));
-				news.setPhotsNews("http://192.168.2.102:8080/PSPolitics/img/shahadeo.jpg");
+				news.setPhotsNews(rs.getString("photsNews"));
 				newsList.add(news);
 
 			}

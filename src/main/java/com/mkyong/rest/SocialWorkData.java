@@ -19,7 +19,7 @@ public class SocialWorkData {
 				SoicalWork socialWork = new SoicalWork();
 				socialWork.setSocialInformation(rs.getString("socialInformation"));
 				socialWork.setSocialDate(rs.getString("date"));
-				socialWork.setSocialPhotos("http://192.168.2.102:8080/PSPolitics/img/social.jpg");
+				socialWork.setSocialPhotos(rs.getString("socialworkImage"));
 				socialworkList.add(socialWork);
 		
 			}

@@ -16,7 +16,7 @@ public class JSONServiceMeeting {
 		@GET
 		@Path("/get")
 		@Produces("application/json; charset=utf-8")
-		public String getMeeting() {
+		public  String getMeeting() {
 			System.out.println("getMeeting...");
 			String meeting = null;
 			Meetings meetings=new Meetings();
@@ -31,6 +31,15 @@ public class JSONServiceMeeting {
 				e.printStackTrace();
 			}
 			return meeting;
+		}
+		@GET
+		@Path("/mr/get")
+		@Produces("application/json; charset=utf-8")
+		public  void getMeetingMr(){
+			JSONServiceMeeting jsonServiceMeeting=new JSONServiceMeeting();
+			jsonServiceMeeting.getMeeting();
+			System.out.println("I am in mr");
+			
 		}
 
 	}
