@@ -6,7 +6,16 @@ public class Party {
 	private String personName;
     private String partyName;
     private String desgination;
-	  public String getPartyImage() {
+    private String aboutParty;
+	  public String getAboutParty() {
+		return aboutParty;
+	}
+
+	public void setAboutParty(String aboutParty) {
+		this.aboutParty = aboutParty;
+	}
+
+	public String getPartyImage() {
 		return partyImage;
 	}
 
